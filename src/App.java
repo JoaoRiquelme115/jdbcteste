@@ -17,8 +17,16 @@ public class App {
         co1.setCliente(cl1);
         co1.setSaldo(1000.0);
 
-        // Testando Conexao CRUD
-        ContaService.inserir(co1);
+        // CONEXÃO CRUD
+        // Testando inserir uma conta
+        //ContaService.inserir(co1);
+
+        // Testando atualizar uma conta
+        Cliente cl2 = new Cliente();
+        cl2.setNome("riquelme");
+        cl2.setTelefone("77988821046");
+        co1.setCliente(cl2);
+        ContaService.atualizar(co1,"555-0");
     }
 
     public static Connection getConexao() {
