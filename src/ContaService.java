@@ -1,6 +1,10 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContaService {
     
@@ -49,6 +53,26 @@ public class ContaService {
         } catch(SQLException ex) {
             System.out.println("NÃO FOI POSSÍVEL DELETAR A CONTA!");
         }
+    }
+
+    public static List<Conta> listarContas() throws SQLException {
+        List<Conta> contas = new ArrayList<>();
+        try(Connection conn = App.getConexao()) {
+            String sql = "SELECT * FROM conta";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                Conta c = new Conta();
+                c.setNumero(rs.getString("numero"));
+                //c.setCliente(((Conta) rs).getCliente());
+                c.setSaldo(rs.getDouble("saldo"));
+                contas.add(c);
+            }
+        } catch(SQLException ex) {
+            System.out.println("NÃO FOI POSSÍVEL LISTAR AS CONTAS!");
+            ex.printStackTrace();
+        }
+        return contas;
     }
 
 }

@@ -18,8 +18,7 @@ public class App {
         co1.setSaldo(1000.0);
 
         
-        // CONEXÃO CRUD
-
+        // >>>>> CONEXÃO CRUD
         /*
         // Testando inserir uma conta
         ContaService.inserir(co1);
@@ -34,8 +33,14 @@ public class App {
         ContaService.atualizar(co1,"555-0");
         */
 
+        /*
         // Testando deletar uma conta
         ContaService.deletar(co1);
+        */
+        
+        // Testando listarContas
+        System.out.println(ContaService.listarContas());
+        
     }
 
     public static Connection getConexao() {
