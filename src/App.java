@@ -48,9 +48,9 @@ public class App {
         // ContaService.deletar(co3);
         
         // Testando listar todas as contas e listar por numero da conta
-        // listarArray(ContaService.listarContas());
-        // System.out.println("\n\n");
-        listarArray(ContaService.listarPorNumero("555-6"));
+        listarArray(ContaService.listarContas());
+        System.out.println("\n\n");
+        // listarArray(ContaService.listarPorNumero("555-6"));
 
     }
 
