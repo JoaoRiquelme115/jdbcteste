@@ -37,4 +37,18 @@ public class ContaService {
         }
     }
 
+    public static void deletar(Conta conta) throws SQLException {
+        try(Connection conn = App.getConexao()) {
+            String sql = "DELETE FROM conta WHERE numero = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,conta.getNumero());
+            int res = ps.executeUpdate();
+            if(res > 0) {
+                System.out.println("CONTA DELETADA!");
+            }
+        } catch(SQLException ex) {
+            System.out.println("NÃO FOI POSSÍVEL DELETAR A CONTA!");
+        }
+    }
+
 }
