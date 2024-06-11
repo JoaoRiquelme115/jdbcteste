@@ -5,28 +5,33 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!\n\n");
-        
         // Instanciando o primeiro cliente
         Cliente cl1 = new Cliente();
-        cl1.setNome("Gabriel Coqueiro");
-        cl1.setTelefone("77999996666");
+        cl1.setNome("Joao Riquelme");
+        cl1.setTelefone("77999999999");
 
         // Instanciando a primeira conta
-        // Conta co1 = new Conta();
-        // co1.setNumero("555-5");
-        // co1.setCliente(cl1);
-        // co1.depositar(1000.0);
+        Conta co1 = new Conta();
+        co1.setNumero("555-0");
+        co1.setCliente(cl1);
+        co1.depositar(1000.0);
 
         Poupanca co2 = new Poupanca();
         co2.setNumero("555-6");
         co2.setCliente(cl1);
-        co2.depositar(5.0);
+        co2.depositar(6000.0);
+
+        Corrente co3 = new Corrente();
+        co3.setNumero("555-7");
+        co3.setCliente(cl1);
+        co3.depositar(7000.0);
 
         // >>>>> CONEXÃO CRUD
         
         // Testando inserir uma conta
+        // ContaService.inserir(co1);
         // ContaService.inserir(co2);
+        // ContaService.inserir(co3);
 
         /* 
         // Testando atualizar uma conta
@@ -39,6 +44,8 @@ public class App {
 
         // Testando deletar uma conta
         // ContaService.deletar(co1);
+        // ContaService.deletar(co2);
+        // ContaService.deletar(co3);
         
         // Testando listar todas as contas e listar por numero da conta
         // listarArray(ContaService.listarContas());
