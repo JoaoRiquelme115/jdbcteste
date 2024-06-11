@@ -1,7 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -37,8 +36,9 @@ public class App {
         // ContaService.deletar(co1);
         
         // Testando listar todas as contas e listar por numero da conta
-        listarArray(ContaService.listarContas());
-        // System.out.println(ContaService.listarPorNumero("555-0"));
+        // listarArray(ContaService.listarContas());
+        // System.out.println("\n\n");
+        listarArray(ContaService.listarPorNumero("555-0"));
 
     }
 
