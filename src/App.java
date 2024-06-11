@@ -4,8 +4,21 @@ import java.sql.SQLException;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        System.out.println("Hello, World!\n\n");
         
+        // Instanciando o primeiro cliente
+        Cliente cl1 = new Cliente();
+        cl1.setNome("caio");
+        cl1.setTelefone("77988821045");
+
+        // Instanciando a primeira conta
+        Conta co1 = new Conta();
+        co1.setNumero("555-0");
+        co1.setCliente(cl1);
+        co1.setSaldo(1000.0);
+
+        // Testando Conexao CRUD
+        ContaService.inserir(co1);
     }
 
     public static Connection getConexao() {
