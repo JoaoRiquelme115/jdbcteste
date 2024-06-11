@@ -1,7 +1,7 @@
 public class Fisico extends Cliente {
     private String cpf;
 
-    public void setCpf() {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

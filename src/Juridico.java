@@ -1,7 +1,7 @@
 public class Juridico extends Cliente {
     private String cnpj;
 
-    public void setCnpj() {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

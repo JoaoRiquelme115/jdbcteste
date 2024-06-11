@@ -10,10 +10,20 @@ public class App {
         cl1.setNome("Joao Riquelme");
         cl1.setTelefone("77999999999");
 
+        Fisico cl2 = new Fisico();
+        cl2.setNome("Rick");
+        cl2.setTelefone("77999999999");
+        cl2.setCpf("11100023489");
+
+        Juridico cl3 = new Juridico();
+        cl3.setNome("RickWill");
+        cl3.setTelefone("77999999999");
+        cl3.setCnpj("23521756954");
+
         // Instanciando a primeira conta
         Conta co1 = new Conta();
         co1.setNumero("555-0");
-        co1.setCliente(cl1);
+        co1.setCliente(cl2);
         co1.depositar(1000.0);
 
         Poupanca co2 = new Poupanca();
