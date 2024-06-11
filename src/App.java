@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -17,12 +19,10 @@ public class App {
         co1.setCliente(cl1);
         co1.setSaldo(1000.0);
 
-        
         // >>>>> CONEXÃO CRUD
-        /*
+        
         // Testando inserir uma conta
-        ContaService.inserir(co1);
-        */
+        // ContaService.inserir(co1);
 
         /* 
         // Testando atualizar uma conta
@@ -33,14 +33,19 @@ public class App {
         ContaService.atualizar(co1,"555-0");
         */
 
-        /*
         // Testando deletar uma conta
-        ContaService.deletar(co1);
-        */
+        // ContaService.deletar(co1);
         
-        // Testando listarContas
-        System.out.println(ContaService.listarContas());
-        
+        // Testando listar todas as contas e listar por numero da conta
+        listarArray(ContaService.listarContas());
+        // System.out.println(ContaService.listarPorNumero("555-0"));
+
+    }
+
+    public static void listarArray(List<Conta> lista) {
+        for(int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
     }
 
     public static Connection getConexao() {
@@ -51,15 +56,11 @@ public class App {
             String username = "remoto";
             String password = "remoto";
             conexao = DriverManager.getConnection(url,username,password);
-            System.out.println("CONECTADO AO BANCO DE DADOS!");
-            return conexao;
-        } catch(ClassNotFoundException e) {
+        } catch(ClassNotFoundException | SQLException e) {
             System.err.println("Não foi possível encontrar o Driver especificado!");
-            return null;
-        } catch(SQLException e) {
-            System.err.println("Não foi possível conectar ao Banco de Dados!");
-            return null;
+            e.printStackTrace();
         }
+        return conexao;
     }
 
 }

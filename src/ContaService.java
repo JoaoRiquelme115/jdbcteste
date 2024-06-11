@@ -20,7 +20,7 @@ public class ContaService {
                 System.out.println("CONTA INSERIDA!");
             }
         } catch(SQLException ex) {
-            System.out.println("NÃO FOI POSSÍVEL INSERIR A CONTA!");
+            System.err.println("NÃO FOI POSSÍVEL INSERIR A CONTA!");
         }
     }
 
@@ -37,7 +37,7 @@ public class ContaService {
                 System.out.println("CONTA ATUALIZADA!");
             }
         } catch(SQLException ex) {
-            System.out.println("NÃO FOI POSSÍVEL ATUALIZAR A CONTA!");
+            System.err.println("NÃO FOI POSSÍVEL ATUALIZAR A CONTA!");
         }
     }
 
@@ -51,7 +51,7 @@ public class ContaService {
                 System.out.println("CONTA DELETADA!");
             }
         } catch(SQLException ex) {
-            System.out.println("NÃO FOI POSSÍVEL DELETAR A CONTA!");
+            System.err.println("NÃO FOI POSSÍVEL DELETAR A CONTA!");
         }
     }
 
@@ -69,7 +69,28 @@ public class ContaService {
                 contas.add(c);
             }
         } catch(SQLException ex) {
-            System.out.println("NÃO FOI POSSÍVEL LISTAR AS CONTAS!");
+            System.err.println("NÃO FOI POSSÍVEL LISTAR AS CONTAS!");
+            ex.printStackTrace();
+        }
+        return contas;
+    }
+
+    public static List<Conta> listarPorNumero(String numero) throws SQLException {
+        List<Conta> contas = new ArrayList<>();
+        try(Connection conn = App.getConexao()) {
+            String sql = "SELECT * FROM conta WHERE numero = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,numero);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Conta c = new Conta();
+                c.setNumero(rs.getString("numero"));
+                //c.setCliente(((Conta) rs).getCliente());
+                c.setSaldo(rs.getDouble("saldo"));
+                contas.add(c);
+            }
+        } catch(SQLException ex) {
+            System.err.println("NÃO FOI POSSÍVEL LISTAR AS CONTAS!");
             ex.printStackTrace();
         }
         return contas;
