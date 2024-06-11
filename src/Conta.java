@@ -1,8 +1,8 @@
 public class Conta {
     private String numero;
     private Cliente cliente;
-    private Double saldo;
-    private Double limite;
+    private double saldo;
+    private double limite;
 
     public void setNumero(String numero) {
         this.numero = numero;
@@ -24,7 +24,7 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public Double getSaldo() {
+    public double getSaldo() {
         return this.saldo;
     }
 

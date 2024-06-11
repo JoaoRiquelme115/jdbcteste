@@ -9,19 +9,24 @@ public class App {
         
         // Instanciando o primeiro cliente
         Cliente cl1 = new Cliente();
-        cl1.setNome("caio");
-        cl1.setTelefone("77988821045");
+        cl1.setNome("Gabriel Coqueiro");
+        cl1.setTelefone("77999996666");
 
         // Instanciando a primeira conta
-        Conta co1 = new Conta();
-        co1.setNumero("555-0");
-        co1.setCliente(cl1);
-        co1.setSaldo(1000.0);
+        // Conta co1 = new Conta();
+        // co1.setNumero("555-5");
+        // co1.setCliente(cl1);
+        // co1.depositar(1000.0);
+
+        Poupanca co2 = new Poupanca();
+        co2.setNumero("555-6");
+        co2.setCliente(cl1);
+        co2.depositar(5.0);
 
         // >>>>> CONEXÃO CRUD
         
         // Testando inserir uma conta
-        // ContaService.inserir(co1);
+        // ContaService.inserir(co2);
 
         /* 
         // Testando atualizar uma conta
@@ -38,7 +43,7 @@ public class App {
         // Testando listar todas as contas e listar por numero da conta
         // listarArray(ContaService.listarContas());
         // System.out.println("\n\n");
-        listarArray(ContaService.listarPorNumero("555-0"));
+        listarArray(ContaService.listarPorNumero("555-6"));
 
     }
 
